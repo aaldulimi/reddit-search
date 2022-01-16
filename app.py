@@ -80,13 +80,6 @@ def main():
             st.write('/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////')
            
 
-            
-            # st.write(
-            #    f"""**{reddit_post['title'].values[0]}**  
-            #            {reddit_post['description'].values[0]}  
-            # **Upvote/Downvote**: {reddit_post['score'].values[0]},  ** comments: {reddit_post['comments'].values[0]} ** 
-            # **Reddit url**: 
-            # {reddit_post['full_link'].values[0]}""") 
 
 if __name__ == "__main__":
     main()
