@@ -52,7 +52,7 @@ def main():
     st.title("Similarity search on (parts of) reddit")
     st.write('Search all posts on r/wallstreetbets, r/stocks, r/investing and r/CryptoCurrency from 2021.')
     # User search
-    user_input = st.text_input("Search box", placeholder="tips on investing")
+    user_input = st.text_input("Search box", placeholder="tips on investing, which crypto should I invest in")
     
     if user_input:
         # Get paper IDs
@@ -69,8 +69,6 @@ def main():
                 'score': reddit_post['score'].values[0],
                 'comments': reddit_post['comments'].values[0]
             }
-            # print(return_obj)
-            # st.write(reddit_post['title'].values[0])
 
             st.subheader(return_obj['title'])
             st.write(f"upvotes/downvotes: {return_obj['score']}, comments: {return_obj['comments']}" )
