@@ -6,7 +6,7 @@ import requests
 import io
 
 
-@st.cache
+@st.experimental_singleton
 def read_data(deta_file='stocks_crypto_all.csv'):
     """Read the data."""
     header = {
