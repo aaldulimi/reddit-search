@@ -4,15 +4,13 @@ import streamlit as st
 from sentence_transformers import SentenceTransformer
 import requests 
 import io
-from dotenv import load_dotenv
 
-load_dotenv()
 
 @st.cache
 def read_data(deta_file='stocks_crypto_all.csv'):
     """Read the data."""
     header = {
-    "X-API-Key": os.environ.get("DETA_KEY"),
+    "X-API-Key": st.secrets["DETA_KEY"],
     "Content-Type": "application/json"
     }
 
