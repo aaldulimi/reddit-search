@@ -4,18 +4,19 @@ import streamlit as st
 from sentence_transformers import SentenceTransformer
 import requests 
 import io
+from dotenv import load_dotenv
 
+load_dotenv()
 
 @st.cache
-def read_data(s3_data='stocks_crypto_all.csv'):
+def read_data(deta_file='stocks_crypto_all.csv'):
     """Read the data."""
-    # return pd.read_csv(s3_data)
     header = {
-    "X-API-Key": "c0u91dyk_viAjdWRh6vz9TVMFNKQca5cu7FfHqAfd",
+    "X-API-Key": os.environ.get("DETA_KEY"),
     "Content-Type": "application/json"
     }
 
-    detadrive = 'https://drive.deta.sh/v1/c0u91dyk/stocks/files/download?name=stocks_crypto_all.csv'
+    detadrive = f'https://drive.deta.sh/v1/c0u91dyk/stocks/files/download?name={deta_file}'
 
     data = requests.get(detadrive, headers=header)
     s = data.content
